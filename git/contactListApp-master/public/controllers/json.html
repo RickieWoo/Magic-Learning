@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>How to populate a drop-down select list with JSON data in jQuery</title>
+</head>
+<body>
+  <p>
+    <label for="DLState">State: </label>
+    <select id="DLState"></select>
+    <button type="submit" id="submit">Submit</button>
+  </p>
+ 
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script type="text/javascript">
+  var jsonData = {
+      "Table": [{
+          "stateid": "2",
+          "statename": "Texas"
+      }, {
+          "stateid": "3",
+          "statename": "Louisiana"
+      }, {
+          "stateid": "4",
+          "statename": "California"
+      }, {
+          "stateid": "5",
+          "statename": "Nevada"
+      }, {
+          "stateid": "6",
+          "statename": "Massachusetts"
+      }]
+  };
+ 
+     $(document).ready(function () {
+         var listItems = '<option selected="selected" value="0">- Select -</option>';
+ 
+      for (var i = 0; i < jsonData.Table.length; i++) {
+             listItems += "<option value='" + jsonData.Table[i].stateid + "'>" + jsonData.Table[i].statename + "</option>";
+         }
+ 
+         $("#DLState").html(listItems);
+
+         
+     });
+  </script>
+</body>
+</html>

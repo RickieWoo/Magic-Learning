@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Local DynamoDb</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/index.css">
+    <script>
+        function reload() {
+            window.location.reload();
+        }
+
+        function goToShell() {
+            window.location.href = 'http://localhost:8000/shell';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Local DynamoDb</h1>
+                <input type="button" class="btn btn-warning" value="↻" onclick="reload()" />
+                <input type="button" class="btn btn-warning" value="open shell" onclick="goToShell()" />
+            </div>
+            <div class="col-md-12">
+                <table class="table">
+                    <% data.forEach(function(table){ %>
+                        <caption>
+                            <%= table.name %>
+                        </caption>
+                        <tr>
+                            <% table.fields.forEach(function(field){ %>
+                                <th>
+                                    <%=field %>
+                                </th>
+                                <% }); %>
+                        </tr>
+                        <% table.items.forEach(function(item){ %>
+                            <tr>
+                                <% table.fields.forEach(function(field){ %>
+                                    <td>
+                                        <%=item[field] %>
+                                    </td>
+                                    <% }); %>
+                            </tr>
+                            <% }); %>
+                                <% }); %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js "></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js "></script>
+
+</html>

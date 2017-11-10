@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <title>Contact List APP</title>
+</head>
+
+<body>
+    <div class="container" ng-controller="AppCtrl" style="background-color:#7FFF00;height:100%;width:100%">
+        <h1 class="text-center text-primary">Contact List APP</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="form-control" ng-model="contact.name"></td>
+                    <td><input class="form-control" ng-model="contact.email"></td>
+                    <td><input class="form-control" ng-model="contact.phone"></td>
+                    <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+                    <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+
+                </tr>
+                <tr ng-repeat="contact in contactlist">
+                    <td><b>{{contact.name}}</b></td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+                    <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <input ng-model="test"><p>{{test}}</p> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="/controllers/controller.js"></script>
+</body>
+
+</html>

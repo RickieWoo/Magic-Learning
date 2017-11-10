@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This is a test page</title>
+    <script>
+        function checkform() {
+            document.getElementById("form1").onsubmit = function() {
+                var allow = true;
+                if (document.getElementById("user").value == "") {
+                    alert("name blank");
+                    allow = false;
+                }
+                if (allow) {
+                    alert("ok,confirm ");
+                    return allow;
+                }
+            }
+        }
+        window.onload = checkform;
+    </script>
+</head>
+
+<body>
+    <form action="" id="form1">
+        Name:<input type="text" name="username" value="" id="user"> <br> Phone: <input type="text" name="phonenumber" id="phonenumber">
+        <input type="submit" name="" id="">
+    </form>
+</body>
+
+</html>
