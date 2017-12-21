@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="1app">
+    <input v-model="newTodo" v-on:keyup.enter="addTodo">
+    <ul>
+      <li v-for="todo in todos">
+        <span>{{ todo.text }}</span>
+        <button v-on:click="removeTodo($index)">X</button>
+      </li>
+      <my-component></my-component>
+    </ul>
+  </div>
+  <div id="counter-event-example">
+    <p>{{ total }}</p>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+  </div>
+  <div id="app"></div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script src="./test.js"></script>
+</html>

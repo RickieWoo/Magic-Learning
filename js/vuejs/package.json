@@ -1,0 +1,15 @@
+{
+  "name": "vuejs",
+  "version": "1.0.0",
+  "description": "a practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "--test"
+  },
+  "keywords": [
+    "vuejs",
+    "nodejs"
+  ],
+  "author": "RickieWoo",
+  "license": "ISC"
+}
